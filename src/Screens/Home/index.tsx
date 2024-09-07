@@ -7,10 +7,10 @@ export default function Home() {
   const route = Stack.useRoute();
 
   const onShowForm = () => {
-    // route.setConfig({ animation: () => new KeyframeEffect(null, [], {}) });
+    route.setConfig({ animation: () => new KeyframeEffect(null, [], {}) });
   }
   const onPosts = () => {
-    // route.setConfig({ animation: Stack.iOSSlideInFromRight });
+    route.setConfig({ animation: Stack.iOSSlideInFromRight });
   }
   return (
     <>
