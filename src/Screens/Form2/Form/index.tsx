@@ -1,3 +1,4 @@
+import { SharedElement } from '@react-motion-router/core';
 import * as Stack from '@react-motion-router/stack';
 import React from 'react';
 
@@ -14,17 +15,19 @@ function StepOne() {
 
 	if (!step) return null;
 	return (
-		<>
-			<label htmlFor="name">Name:</label>
-			<input
-				type="text"
-				id="name"
-				name="name"
-				value={name}
-				onChange={(e) => setName(e.target.value)}
-				readOnly={step !== "1"}
-			/>
-		</>
+		<SharedElement id="step-1">
+			<div>
+				<label htmlFor="name">Name:</label>
+				<input
+					type="text"
+					id="name"
+					name="name"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+					readOnly={step !== "1"}
+				/>
+			</div>
+		</SharedElement>
 	);
 }
 
@@ -35,7 +38,7 @@ function StepTwo() {
 
 	if (step === undefined || step === "1") return null;
 	return (
-		<>
+		<div>
 			<label htmlFor="email">Email:</label>
 			<input
 				type="email"
@@ -45,7 +48,7 @@ function StepTwo() {
 				onChange={(e) => setEmail(e.target.value)}
 				readOnly={step !== "2"}
 			/>
-		</>
+		</div>
 	);
 }
 
@@ -96,9 +99,11 @@ export default function Form() {
 				<StepOne />
 				<StepTwo />
 				{step && (
-					<button type='submit'>
-						{step === "1" ? 'Next' : 'Submit'}
-					</button>
+					<SharedElement id="submit">
+						<button type='submit'>
+							{step === "1" ? 'Next' : 'Submit'}
+						</button>
+					</SharedElement>
 				)}
 			</form>
 		</div>
