@@ -25,6 +25,7 @@ function StepOne() {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 					readOnly={step !== "1"}
+					required
 				/>
 			</div>
 		</SharedElement>
@@ -47,6 +48,7 @@ function StepTwo() {
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
 				readOnly={step !== "2"}
+				required
 			/>
 		</div>
 	);
@@ -101,7 +103,11 @@ export default function Form() {
 				{step && (
 					<SharedElement id="submit">
 						<button type='submit'>
-							{step === "1" ? 'Next' : 'Submit'}
+							<SharedElement id="submit-label" config={{ type: "fade-through" }}>
+								<span style={{ fontWeight: 500, fontSize: "1em" }}>
+									{step === "1" ? 'Next' : 'Submit'}
+								</span>
+							</SharedElement>
 						</button>
 					</SharedElement>
 				)}
