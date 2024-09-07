@@ -18,6 +18,7 @@ function StepOne() {
 			<label htmlFor="name">Name:</label>
 			<input
 				type="text"
+				id="name"
 				name="name"
 				value={name}
 				onChange={(e) => setName(e.target.value)}
@@ -38,6 +39,7 @@ function StepTwo() {
 			<label htmlFor="email">Email:</label>
 			<input
 				type="email"
+				id="email"
 				name="email"
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}

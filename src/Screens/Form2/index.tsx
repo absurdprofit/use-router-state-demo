@@ -1,11 +1,12 @@
 import * as Stack from '@react-motion-router/stack';
 import Form from './Form';
 
-function Header() {
+function Header(props: Stack.ScreenComponentProps<{ step: string; }>) {
 	const navigation = Stack.useNavigation();
+	const { step } = props.route.params;
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column' }}>
-			{navigation.canGoBack() && <Stack.Anchor style={{ width: 'max-content' }} goBack>Back</Stack.Anchor>}
+			{step && navigation.canGoBack() && <Stack.Anchor style={{ width: 'max-content' }} goBack>Back</Stack.Anchor>}
 			{!navigation.canGoBack() && <Stack.Anchor style={{ width: 'max-content' }} navigation={navigation.parent as Stack.Navigation} goBack>Close</Stack.Anchor>}
 			<h5 style={{ flex: 1 }}>Form</h5>
 		</div>

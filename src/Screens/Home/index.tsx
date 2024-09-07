@@ -3,8 +3,15 @@ import * as Stack from '@react-motion-router/stack';
 import viteLogo from '/vite.svg'
 
 export default function Home() {
-  const [count, setCount] = Stack.useParams("count", 0)
+  const [count, setCount] = Stack.useParams("count", 0);
+  const route = Stack.useRoute();
 
+  const onShowForm = () => {
+    // route.setConfig({ animation: () => new KeyframeEffect(null, [], {}) });
+  }
+  const onPosts = () => {
+    // route.setConfig({ animation: Stack.iOSSlideInFromRight });
+  }
   return (
     <>
       <div>
@@ -27,9 +34,9 @@ export default function Home() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Stack.Anchor href="posts">Go to Posts</Stack.Anchor>
-      <Stack.Anchor href="form/step/1">Go to Form</Stack.Anchor>
-      <Stack.Anchor href="form-2/step/1">Go to Form 2</Stack.Anchor>
+      <Stack.Anchor href="posts" onClick={onPosts}>Go to Posts</Stack.Anchor>
+      <Stack.Anchor href="form/step/1" onClick={onShowForm}>Go to Form</Stack.Anchor>
+      <Stack.Anchor href="form-2/step/1" onClick={onShowForm}>Go to Form 2</Stack.Anchor>
     </>
   )
 }

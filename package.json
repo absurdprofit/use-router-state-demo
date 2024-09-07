@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-motion-router/core": "^2.0.0-beta.sha-deacfd4",
+    "@react-motion-router/core": "^2.0.0-beta.sha-f913e1c",
     "@react-motion-router/stack": "^2.0.0-beta.sha-deacfd4",
     "@types/dom-navigation": "^1.0.3",
     "react": "^18.3.1",
